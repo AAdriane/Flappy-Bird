@@ -4,16 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Flappy Bird</title>
-    <link rel="stylesheet" href="css/estilo.css">
-    <link rel="stylesheet" href="css/flappy.css">
+    <link rel="stylesheet" href="../css/flappy.css">
 </head>
 
-<body class="conteudo">
-    <h1>Flappy Bird</h1>
-    <input type="button" id="refresh" onClick="window.location.reload()" value="Start"></input>
-    <div wm-flappy> 
+<body>
+    <h1 class="center">Flappy Bird</h1>
+    <div  class="center">
+        <input type="button" id="refresh" onClick="window.location.reload()" value="Start"></input>
     </div>
-    <script src="js/flappy.js"></script>
+    
+    <div class="container-flappy">
+        <div wm-flappy> 
+        </div>
+    </div>
+    
+    <script src="../js/flappy.js"></script>
 </body>
 
 </html>
