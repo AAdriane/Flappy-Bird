@@ -45,7 +45,8 @@ function Barreiras(altura, largura, abertura, espaco, notificarPonto) {
         new ParDeBarreiras(altura, abertura, largura + espaco * 2),
         new ParDeBarreiras(altura, abertura, largura + espaco * 3)
     ]
-    const deslocamento = 3
+    let deslocamento = 3;
+
     this.animar = () => {
         this.pares.forEach(par => {
             par.setX(par.getX() - deslocamento)
@@ -60,6 +61,11 @@ function Barreiras(altura, largura, abertura, espaco, notificarPonto) {
             if (cruzouOMeio) notificarPonto()
         })
     }
+
+    // Aumenta a velocidade a cada 15 segundos
+    setInterval(() => {
+        deslocamento += 1;
+    }, 10000);
 }
 function Passaro(alturaJogo) {
     let voando = false
@@ -70,8 +76,13 @@ function Passaro(alturaJogo) {
     this.getY = () => parseInt(this.elemento.style.bottom.split('px')[0])
     this.setY = y => this.elemento.style.bottom = `${y}px`
 
-    window.onkeydown = e => voando = true
-    window.onkeyup = e => voando = false
+    // Eventos de teclado
+    window.onkeydown = e => voando = true;
+    window.onkeyup = e => voando = false;
+
+    // Eventos de toque mobile
+    document.addEventListener('touchstart', () => voando = true);
+    document.addEventListener('touchend', () => voando = false);
 
     this.animar = () => {
         const novoY = this.getY() + (voando ? 8 : -5)
@@ -123,9 +134,9 @@ function FlappyBird() {
     const largura = areaDoJogo.clientWidth
 
     const progresso = new Progresso()
-    const barreiras = new Barreiras(altura, largura, 200, 400,() => progresso.atualizarPontos(++pontos))
+    const barreiras = new Barreiras(altura, largura, 270 , 450,() => progresso.atualizarPontos(++pontos))
     const passaro = new Passaro(altura)
-
+  
     areaDoJogo.appendChild(progresso.elemento)
     areaDoJogo.appendChild(passaro.elemento)
     barreiras.pares.forEach(par => areaDoJogo.appendChild(par.elemento))
@@ -140,7 +151,7 @@ function FlappyBird() {
                 clearInterval(temporizador)
                 alert("Ooops! Fim de jogo...");
             }
-        }, 20)
+        }, 18)
     }
 }
 
