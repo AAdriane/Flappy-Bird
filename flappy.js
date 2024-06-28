@@ -1,6 +1,15 @@
 function iniciar(){
     window.location.reload(true); 
 }
+function showCustomAlert() {
+    const alertBox = document.getElementById('customAlert');
+    alertBox.style.display = 'block';
+}
+
+function closeCustomAlert() {
+    const alertBox = document.getElementById('customAlert');
+    alertBox.style.display = 'none';
+}
 function novoElemento(tagName, className) {
     const elem = document.createElement(tagName)
     elem.className = className
@@ -149,7 +158,7 @@ function FlappyBird() {
 
             if (colidiu(passaro, barreiras)) {
                 clearInterval(temporizador)
-                alert("Ooops! Fim de jogo...");
+                showCustomAlert();
             }
         }, 18)
     }

@@ -10,11 +10,15 @@
 <body>
     <h1 class="center">Flappy Bird</h1>
     <div  class="center">
-        <input type="button" id="refresh" onClick="window.location.reload()" value="Start"></input>
+        <input type="button" class="refresh" onClick="window.location.reload()" value="Start"></input>
     </div>
     
     <div class="container-flappy">
         <div wm-flappy> 
+            <div class="custom-alert" id="customAlert">
+                <h4>Ooops! Fim de jogo...</h4>
+                <button onclick="closeCustomAlert()">OK</button>
+            </div>
         </div>
     </div>
     
