@@ -48,7 +48,7 @@
     transform: skew(-10deg);
     transition: all .1s ease;
     filter: drop-shadow(0 15px 20px var(--😀😀😀));
-    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 .passaro {
@@ -109,6 +109,7 @@ body {
     display: flex;
     justify-content: center;
     color: #fff;
+    margin-bottom: 5px;
 }
 
 .custom-alert {
